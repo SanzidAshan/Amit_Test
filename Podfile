@@ -7,5 +7,6 @@ use_frameworks!
 pod 'BarcodeScanner'
 pod 'Alamofire'
 pod 'IQKeyboardManagerSwift'
+pod 'ObjectMapper'
 
 end

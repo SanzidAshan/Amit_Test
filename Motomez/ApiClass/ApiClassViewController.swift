@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import ObjectMapper
 
 @objc protocol ApiRequestingDelegate {
     
@@ -22,6 +23,8 @@ class ApiClassViewController: UIViewController {
     
     var delegate: ApiRequestingDelegate?
     
+   
+
     
     func postRequest(invoiceNumber:String, type:String, partsArray:[[String : Any]]){
         
@@ -52,13 +55,14 @@ class ApiClassViewController: UIViewController {
             if response.result.value != nil {
                 switch response.result {
                 case .success:
-                    if let jsonRoot = response.result.value as? [String:Any]!{
+                    if let jsonRoot = response.result.value as? [String:Any]?{
                         
-                        
+                        print(jsonRoot)
                     }
                 case .failure(let error):
                     
                     print(error)
+
                     
                 }
             } else{
@@ -71,16 +75,16 @@ class ApiClassViewController: UIViewController {
 
     
     // Get request
-    func getRequest(){
+    func getRequest(date:String, type:String, page:Int,per_page:Int){
         
         let url = "https://motomaze.mazegeek.com/api/v1/invoices"
         print(url)
         let parameters: [String : Any]? = [
-            "token": "4bde6bd718112fca2b509206a9972cb6",
-            "date":"2018-07-18",
-            "type" :"RECEIVE",
-            "page" : 1,
-            "per_page" : 5
+            "token": Constants.returnAccessToken(),
+            "date":date,
+            "type" :type,
+            "page" : page,
+            "per_page" : per_page
             
         ]
         
@@ -92,15 +96,16 @@ class ApiClassViewController: UIViewController {
             if response.result.value != nil {
                 switch response.result {
                 case .success:
-                    if let jsonRoot = response.result.value as? [String:Any]!{
+                    if let jsonRoot = response.result.value as? [String:Any]?{
                         
-                       // delegate?.getInventoryListSuccess()
-                        
+                        self.delegate?.getInventoryListSuccess!(data: jsonRoot!)
                     }
                     
                 case .failure(let error):
                     
                     print(error)
+                    self.delegate?.getInventoryListFail!(data: error as! [String : Any])
+
                 }
             } else {
                 

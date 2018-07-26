@@ -67,7 +67,7 @@
                 <outlet property="plusButton" destination="xXs-9X-PGO" id="VCO-bc-oRN"/>
                 <outlet property="quantityLabel" destination="JtC-vX-Iwy" id="RtA-Qo-h3Q"/>
             </connections>
-            <point key="canvasLocation" x="-975" y="-763"/>
+            <point key="canvasLocation" x="-975.5" y="-763.5"/>
         </tableViewCell>
     </objects>
 </document>

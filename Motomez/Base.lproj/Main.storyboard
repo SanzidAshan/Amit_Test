@@ -234,24 +234,49 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JCo-HL-8hR">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="uVg-uB-ZvI" id="LXh-oY-fjI"/>
+                                    <outlet property="delegate" destination="uVg-uB-ZvI" id="dWJ-NU-ocM"/>
+                                </connections>
                             </tableView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Select Date" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="STi-NX-33K">
+                                <rect key="frame" x="0.0" y="667" width="375" height="0.0"/>
+                                <color key="backgroundColor" red="0.50347560469999997" green="0.43598680899999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="STi-NX-33K" firstAttribute="leading" secondItem="xqI-iJ-Hqk" secondAttribute="leading" id="7zr-Cc-tXt"/>
                             <constraint firstItem="xqI-iJ-Hqk" firstAttribute="trailing" secondItem="JCo-HL-8hR" secondAttribute="trailing" id="EPO-Ah-USC"/>
+                            <constraint firstItem="STi-NX-33K" firstAttribute="trailing" secondItem="xqI-iJ-Hqk" secondAttribute="trailing" id="NLa-pS-GSK"/>
+                            <constraint firstItem="STi-NX-33K" firstAttribute="top" secondItem="JCo-HL-8hR" secondAttribute="bottom" id="PdX-an-VZs"/>
                             <constraint firstItem="JCo-HL-8hR" firstAttribute="leading" secondItem="xqI-iJ-Hqk" secondAttribute="leading" id="Wqv-Yo-KRc"/>
+                            <constraint firstItem="xqI-iJ-Hqk" firstAttribute="bottom" secondItem="STi-NX-33K" secondAttribute="bottom" id="dvK-Yk-AQU"/>
                             <constraint firstItem="JCo-HL-8hR" firstAttribute="top" secondItem="xqI-iJ-Hqk" secondAttribute="top" id="qzW-CW-K0n"/>
                             <constraint firstItem="xqI-iJ-Hqk" firstAttribute="bottom" secondItem="JCo-HL-8hR" secondAttribute="bottom" id="xdB-Sm-y7W"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xqI-iJ-Hqk"/>
                     </view>
+                    <navigationItem key="navigationItem" id="e8a-v9-nSx">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="109-HB-7ki">
+                            <connections>
+                                <action selector="selectInventoryAction:" destination="uVg-uB-ZvI" id="SWg-cb-5rE"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="listTableView" destination="JCo-HL-8hR" id="D97-eL-AM8"/>
+                        <outlet property="selectDateTextField" destination="STi-NX-33K" id="Szw-hu-zrU"/>
+                        <outlet property="tableViewBottomConstrains" destination="xdB-Sm-y7W" id="AhO-OH-WOd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uO8-PN-gwE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="678" y="-1426"/>
+            <point key="canvasLocation" x="1077.5999999999999" y="-1415.4422788605698"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7ns-wl-lzC">
